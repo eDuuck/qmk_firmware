@@ -1,0 +1,31 @@
+# MCU name
+MCU = atmega32u4
+
+# Bootloader selection
+BOOTLOADER = atmel-dfu
+
+# Build Options
+#   change yes to no to disable
+#
+BOOTMAGIC_ENABLE  = lite # Enable Bootmagic Lite
+MOUSEKEY_ENABLE   = yes       # Mouse keys
+EXTRAKEY_ENABLE   = yes       # Audio control and System control
+CONSOLE_ENABLE    = no         # Console for debug
+COMMAND_ENABLE    = no         # Commands for debug and configuration
+CUSTOM_MATRIX     = yes # Custom matrix file for the ErgoDox EZ
+SLEEP_LED_ENABLE  = no       # Breathing sleep LED during USB suspend
+# if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
+NKRO_ENABLE       = yes            # USB Nkey Rollover
+UNICODE_ENABLE    = yes # Unicode
+BACKLIGHT_ENABLE = yes   # Enable keyboard backlight functionality
+RGBLIGHT_ENABLE   = no        # Enable keyboard RGB underglow
+AUDIO_ENABLE      = no        # Audio output
+ENCODER_ENABLE 	  = yes
+MOUSEKEY_ENABLE   = yes
+DEBOUNCE_TYPE = sym_eager_pr
+
+SRC += \
+	matrix.c \
+	expander.c
+
+QUANTUM_LIB_SRC += i2c_master.c
